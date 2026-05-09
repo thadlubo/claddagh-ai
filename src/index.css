@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- base ---------- */
+@layer base {
+  :root {
+    --c-deep: #064e3b;
+    --c-rich: #0f6b4f;
+    --c-mint: #e8f5ef;
+    --c-ivory: #fafaf7;
+    --c-gold: #c9a45c;
+    --c-charcoal: #1f2933;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-claddagh-ivory text-claddagh-charcoal font-sans;
+    font-feature-settings:
+      "ss01" on,
+      "cv11" on;
+  }
+
+  ::selection {
+    background: rgba(201, 164, 92, 0.35);
+    color: #064e3b;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    letter-spacing: -0.01em;
+  }
+
+  /* Eyebrow / kicker label */
+  .eyebrow {
+    @apply text-xs uppercase tracking-ultra-wide font-medium text-claddagh-deep/80;
+  }
+
+  .eyebrow-gold {
+    @apply text-xs uppercase tracking-ultra-wide font-medium text-claddagh-gold;
+  }
+
+  /* Subtle hairline divider with gold center */
+  .gold-line {
+    height: 1px;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201, 164, 92, 0.3) 30%,
+      rgba(201, 164, 92, 0.85) 50%,
+      rgba(201, 164, 92, 0.3) 70%,
+      transparent 100%
+    );
+  }
+}
+
+@layer components {
+  /* Section container */
+  .container-x {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           px-6 py-3 text-sm font-medium tracking-wide
+           transition-all duration-300 ease-out
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-claddagh-gold/60
+           focus-visible:ring-offset-2 focus-visible:ring-offset-claddagh-ivory;
+  }
+
+  .btn-primary {
+    @apply btn bg-claddagh-deep text-claddagh-ivory shadow-soft
+           hover:bg-claddagh-rich hover:shadow-card hover:-translate-y-[1px];
+  }
+
+  .btn-gold {
+    @apply btn bg-gradient-to-b from-claddagh-goldsoft to-claddagh-gold text-claddagh-deep
+           shadow-soft hover:shadow-gold hover:-translate-y-[1px];
+  }
+
+  .btn-ghost {
+    @apply btn border border-claddagh-deep/20 text-claddagh-deep
+           bg-white/60 backdrop-blur-sm
+           hover:bg-white hover:border-claddagh-deep/40 hover:-translate-y-[1px];
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-claddagh-deep
+           border-b border-claddagh-deep/30 pb-0.5
+           transition-colors hover:text-claddagh-rich hover:border-claddagh-gold;
+  }
+
+  /* Glass card */
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/60
+           shadow-[0_1px_2px_rgba(15,23,42,0.04),0_20px_60px_rgba(6,78,59,0.06)];
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white border border-claddagh-grey/70 rounded-2xl
+           shadow-soft transition-all duration-500 ease-out;
+  }
+
+  .card-hover {
+    @apply hover:shadow-card hover:-translate-y-1 hover:border-claddagh-gold/40;
+  }
+
+  /* Tag pill */
+  .tag {
+    @apply inline-flex items-center gap-1.5 rounded-full
+           px-3 py-1 text-[11px] uppercase tracking-[0.18em] font-medium;
+  }
+
+  .tag-emerald {
+    @apply tag bg-claddagh-mint text-claddagh-deep border border-claddagh-deep/10;
+  }
+
+  .tag-gold {
+    @apply tag bg-claddagh-gold/10 text-claddagh-deep
+           border border-claddagh-gold/40;
+  }
+
+  .tag-charcoal {
+    @apply tag bg-claddagh-charcoal/5 text-claddagh-charcoal
+           border border-claddagh-charcoal/10;
+  }
+
+  /* Headlines */
+  .h-display {
+    @apply font-display text-[clamp(2.4rem,5.6vw,4.6rem)]
+           leading-[1.04] tracking-[-0.015em] text-claddagh-deep;
+  }
+
+  .h-section {
+    @apply font-display text-[clamp(1.8rem,3.6vw,2.8rem)]
+           leading-[1.1] tracking-[-0.01em] text-claddagh-deep;
+  }
+
+  .h-card {
+    @apply font-display text-xl text-claddagh-deep;
+  }
+
+  /* Soft-noise overlay */
+  .noise {
+    background-image: radial-gradient(
+      rgba(31, 41, 51, 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 3px 3px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animated gold accent line */
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(201, 164, 92, 0) 0%,
+      rgba(201, 164, 92, 0.7) 35%,
+      rgba(226, 201, 138, 1) 50%,
+      rgba(201, 164, 92, 0.7) 65%,
+      rgba(201, 164, 92, 0) 100%
+    );
+    background-size: 220% 100%;
+    animation: shimmer 6s ease-in-out infinite;
+  }
+
+  /* Hide scrollbar utility */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
