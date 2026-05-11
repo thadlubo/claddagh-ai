@@ -12,7 +12,7 @@ const COLUMNS = [
   },
   {
     title: "Meaning",
-    links: ["Heritage", "Symbol Index", "Wear Orientation", "Limerick Atelier"],
+    links: ["Heritage", "Symbol Index", "Wear Orientation", "Connemara Atelier"],
   },
   {
     title: "Ethics",

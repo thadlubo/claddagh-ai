@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "CladdaghAI — a speculative dystopian luxury landing page for an AI-powered Irish matchmaking jewellery system. Fictional critical-design project.",
+  "description": "CladdaghAI a speculative dystopian luxury landing page for an AI-powered Irish matchmaking jewellery system. Fictional critical-design project.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

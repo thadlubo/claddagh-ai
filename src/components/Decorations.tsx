@@ -1,7 +1,7 @@
 import { useMemo, type ReactNode } from "react";
 
 /**
- * EmeraldGlow — soft ambient gradient blob used as an abstract background light.
+ * EmeraldGlow, soft ambient gradient blob used as an abstract background light.
  */
 export function EmeraldGlow({
   className = "",

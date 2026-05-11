@@ -72,7 +72,7 @@ export default function Products() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
           <SectionHeader
             eyebrow="The Collection · 2042"
-            lede="Each piece is finely finished in our Limerick atelier and calibrated against the National Romantic Stability Programme. Every ring is a quiet contract between you, your partner, and the state."
+            lede="Each piece is finely finished in our Connemara atelier and calibrated against the National Romantic Stability Programme. Every ring is a quiet contract between you, your partner, and the state."
           >
             Four rings, four ways the system{" "}
             <span className="italic font-editorial text-claddagh-rich">

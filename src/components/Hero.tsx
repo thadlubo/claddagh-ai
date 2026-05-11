@@ -157,7 +157,7 @@ export default function Hero() {
 
                 {/* Floating chips: z above video + tint for product-style overlays */}
                 <div
-                  className="pointer-events-none absolute -left-4 sm:-left-8 top-10 sm:top-14 z-20
+                  className="pointer-events-none absolute -left-4 sm:-left-3 top-8 sm:top-4 z-20
                              max-w-[220px] hidden sm:block"
                   role="note"
                   aria-label="Vibration advisory: elevated avoidance signal for a flagged profile"
@@ -166,18 +166,18 @@ export default function Hero() {
                     className="glass rounded-2xl px-4 py-3 text-left shadow-[0_10px_40px_rgba(15,23,42,0.14)]
                                ring-1 ring-white/70 backdrop-blur-md"
                   >
-                    <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-amber-900/75">
-                      Vibration advisory
+                    <p className="text-[10px] eyebrow-gold font-medium uppercase tracking-[0.2em] ">
+                      Advisory vibrations
                     </p>
                     <p className="font-display text-claddagh-deep text-lg leading-snug mt-1">
-                      Avoid contact
+                      Contact avoidance
                     </p>
                     <p className="text-[11px] text-claddagh-charcoal/65 mt-0.5 leading-snug">
-                      Resonance recommends distance.
+                      Recommended Distancing.
                     </p>
                     <div className="mt-2.5 h-1.5 rounded-full bg-amber-100/90 overflow-hidden">
                       <div
-                        className="h-full w-[88%] rounded-full bg-gradient-to-r from-amber-700 to-amber-500"
+                        className="h-full w-[77%] rounded-full bg-gradient-to-r from-amber-700 to-amber-500"
                         aria-hidden
                       />
                     </div>
@@ -185,7 +185,7 @@ export default function Hero() {
                 </div>
 
                 <div
-                  className="pointer-events-none absolute -right-3 sm:-right-6 bottom-8 sm:bottom-12 z-20
+                  className="pointer-events-none absolute -right-3 sm:-right-4 bottom-8 sm:bottom-4 z-20
                              max-w-[230px] hidden sm:block"
                   role="note"
                   aria-label="Compatibility score panel"
