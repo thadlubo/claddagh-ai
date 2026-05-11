@@ -3,7 +3,9 @@ import {
   FloatingParticles,
   GoldHairline,
 } from "./Decorations";
-import RingMockup from "./RingMockup";
+
+/** Respects `vite.config.ts` `base` (e.g. /claddagh-ai/) so the file is not requested from the wrong path. */
+const HERO_RING_VIDEO_SRC = `${import.meta.env.BASE_URL}RingAnimation.mp4`;
 
 const TRUST_BADGES = [
   { label: "AI Match Scoring", icon: "✦" },
@@ -19,7 +21,7 @@ export default function Hero() {
       className="relative isolate overflow-hidden bg-emerald-fade"
       aria-labelledby="hero-heading"
     >
-      {/* Layered abstract backdrop. No images. */}
+      {/* Layered abstract backdrop */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <EmeraldGlow
           className="-top-32 -left-24 h-[520px] w-[520px]"
@@ -117,7 +119,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Visual column. Pure CSS + SVG. No imagery. */}
+          {/* Visual column — ring animation (ruby → emerald AI core) */}
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-[540px]">
               {/* decorative gold ring outline behind */}
@@ -134,64 +136,77 @@ export default function Hero() {
                            [mask-image:radial-gradient(closest-side,white,transparent_75%)]"
               />
 
-              <div className="relative glass rounded-[28px] p-4 sm:p-6 overflow-hidden transition-transform duration-500 hover:-translate-y-1">
-                {/* soft inner emerald glow */}
+              <div className="relative isolate glass rounded-[28px] p-4 sm:p-6 overflow-hidden transition-transform duration-500 hover:-translate-y-1">
+                {/* soft inner tint over video (stays under floating chips) */}
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-gradient-to-b from-white/40 via-claddagh-mint/40 to-white/30"
+                  className="absolute inset-0 z-[1] bg-gradient-to-b from-white/25 via-claddagh-mint/25 to-white/20 pointer-events-none"
                 />
-                <div className="relative">
-                  <RingMockup
-                    variant="gold"
-                    gemColor="#0F6B4F"
-                    glow
-                    serial="CLDH · IE · 2042 · 0001"
-                    className="w-full h-auto drop-shadow-[0_18px_30px_rgba(6,78,59,0.18)]"
+                <div className="relative z-[2] rounded-2xl overflow-hidden shadow-[0_18px_30px_rgba(6,78,59,0.12)]">
+                  <video
+                    className="w-full h-auto block align-middle"
+                    src={HERO_RING_VIDEO_SRC}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    aria-label="Animated Claddagh ring: ruby core transitioning to emerald AI core"
                   />
                 </div>
 
-                {/* Floating telemetry chip */}
+                {/* Floating chips: z above video + tint for product-style overlays */}
                 <div
-                  className="absolute -left-4 sm:-left-8 top-10 sm:top-14
-                             glass rounded-2xl px-4 py-3 text-left
-                             max-w-[210px] hidden sm:block"
+                  className="pointer-events-none absolute -left-4 sm:-left-8 top-10 sm:top-14 z-20
+                             max-w-[220px] hidden sm:block"
                   role="note"
-                  aria-label="Live signal panel"
+                  aria-label="Vibration advisory: elevated avoidance signal for a flagged profile"
                 >
-                  <p className="eyebrow-gold text-[10px]">Pulse Sync</p>
-                  <p className="font-display text-claddagh-deep text-lg leading-tight mt-0.5">
-                    72 bpm ·{" "}
-                    <span className="text-claddagh-rich">aligned</span>
-                  </p>
-                  <div className="mt-2 h-1.5 rounded-full bg-claddagh-mint overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-claddagh-rich to-claddagh-gold"
-                      style={{ width: "78%" }}
-                      aria-hidden
-                    />
+                  <div
+                    className="glass rounded-2xl px-4 py-3 text-left shadow-[0_10px_40px_rgba(15,23,42,0.14)]
+                               ring-1 ring-white/70 backdrop-blur-md"
+                  >
+                    <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-amber-900/75">
+                      Vibration advisory
+                    </p>
+                    <p className="font-display text-claddagh-deep text-lg leading-snug mt-1">
+                      Avoid contact
+                    </p>
+                    <p className="text-[11px] text-claddagh-charcoal/65 mt-0.5 leading-snug">
+                      Resonance recommends distance.
+                    </p>
+                    <div className="mt-2.5 h-1.5 rounded-full bg-amber-100/90 overflow-hidden">
+                      <div
+                        className="h-full w-[88%] rounded-full bg-gradient-to-r from-amber-700 to-amber-500"
+                        aria-hidden
+                      />
+                    </div>
                   </div>
                 </div>
 
-                {/* Floating compatibility chip */}
                 <div
-                  className="absolute -right-3 sm:-right-6 bottom-8 sm:bottom-12
-                             glass rounded-2xl px-4 py-3 text-left
+                  className="pointer-events-none absolute -right-3 sm:-right-6 bottom-8 sm:bottom-12 z-20
                              max-w-[230px] hidden sm:block"
                   role="note"
                   aria-label="Compatibility score panel"
                 >
-                  <p className="eyebrow-gold text-[10px]">Compatibility</p>
-                  <p className="font-display text-claddagh-deep text-2xl leading-tight mt-0.5">
-                    94.6%
-                  </p>
-                  <p className="text-[11px] text-claddagh-charcoal/70 mt-0.5">
-                    Approved. Encounter pending.
-                  </p>
+                  <div
+                    className="glass rounded-2xl px-4 py-3 text-left shadow-[0_10px_40px_rgba(15,23,42,0.14)]
+                               ring-1 ring-white/70 backdrop-blur-md"
+                  >
+                    <p className="eyebrow-gold text-[10px]">Compatibility</p>
+                    <p className="font-display text-claddagh-deep text-2xl leading-tight mt-0.5">
+                      94.6%
+                    </p>
+                    <p className="text-[11px] text-claddagh-charcoal/70 mt-0.5">
+                      Approved. Encounter pending.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <p className="mt-5 text-center text-[11px] uppercase tracking-[0.32em] text-claddagh-charcoal/55">
-                Édition Première · 18kt · Emerald AI Core
+                Édition Première · Ruby & Emerald AI Core · 18kt
               </p>
             </div>
           </div>
